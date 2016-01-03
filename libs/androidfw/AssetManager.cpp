@@ -224,10 +224,6 @@ bool AssetManager::addAssetPath(const String8& path, int32_t* cookie)
 
     const ssize_t index = mAssetPaths.add(ap, cookie);
     ap = mAssetPaths.itemAt(index); // get updated version of asset_path
-    if (mResources != NULL) {
-        size_t index = mAssetPaths.size() - 1;
-        appendPathToResTable(ap, &index);
-    }
 
     if (mResources != NULL) {
         appendPathToResTable(ap);
@@ -635,7 +631,7 @@ FileType AssetManager::getFileType(const char* fileName)
         return kFileTypeRegular;
 }
 
-bool AssetManager::appendPathToResTable(const asset_path& ap, size_t* entryIdx) const {
+bool AssetManager::appendPathToResTable(const asset_path& ap) const {
     Asset* ass = NULL;
     ResTable* sharedRes = NULL;
     bool shared = true;
@@ -670,7 +666,7 @@ bool AssetManager::appendPathToResTable(const asset_path& ap, size_t* entryIdx) 
                 }
             }
 
-            if (*entryIdx == 0 && ass != NULL) {
+            if (nextEntryIdx == 0 && ass != NULL) {
                 // If this is the first resource table in the asset
                 // manager, then we are going to cache it so that we
                 // can quickly copy it out for others.
