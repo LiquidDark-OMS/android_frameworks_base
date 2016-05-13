@@ -48,8 +48,6 @@ import java.util.Objects;
 
 /** View that represents a standard quick settings tile. **/
 public class QSTileView extends ViewGroup {
-    private static final Typeface CONDENSED = Typeface.create("sans-serif-condensed",
-            Typeface.NORMAL);
 
     private static final String TAG = "QSTileView";
 
@@ -152,7 +150,7 @@ public class QSTileView extends ViewGroup {
             }
             mDualLabel.setTextColor(mContext.getColor(R.color.qs_tile_text));
             mDualLabel.setPadding(0, mDualTileVerticalPaddingPx, 0, mDualTileVerticalPaddingPx);
-            mDualLabel.setTypeface(CONDENSED);
+            mDualLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
             mDualLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     res.getDimensionPixelSize(R.dimen.qs_tile_text_size));
             mDualLabel.setClickable(true);
@@ -173,7 +171,7 @@ public class QSTileView extends ViewGroup {
             mLabel.setGravity(Gravity.CENTER_HORIZONTAL);
             mLabel.setMinLines(2);
             mLabel.setPadding(0, 0, 0, 0);
-            mLabel.setTypeface(CONDENSED);
+            mLabel.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
             mLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     res.getDimensionPixelSize(R.dimen.qs_tile_text_size));
             mLabel.setClickable(false);
