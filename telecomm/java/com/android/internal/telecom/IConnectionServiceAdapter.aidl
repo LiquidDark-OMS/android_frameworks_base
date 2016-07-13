@@ -90,4 +90,6 @@ oneway interface IConnectionServiceAdapter {
     void setExtras(String callId, in Bundle extras);
 
     void resetCdmaConnectionTime(String callId);
+
+    void onConnectionEvent(String callId, String event);
 }
