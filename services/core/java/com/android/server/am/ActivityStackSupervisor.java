@@ -3040,6 +3040,20 @@ public final class ActivityStackSupervisor implements DisplayListener {
         resumeTopActivitiesLocked();
     }
 
+<<<<<<< HEAD
+    void acquireAppLaunchPerfLock() {
+       /* Acquire perf lock during new app launch */
+       if (mIsPerfBoostEnabled == true && mPerf == null) {
+           mPerf = new BoostFramework();
+       }
+       if (mPerf != null) {
+             mPerf.perfLockAcquire(lDisPackTimeOut, lBoostPackParamVal);
+             mPerf.perfLockAcquire(lBoostTimeOut, lBoostCpuParamVal);
+       }
+    }
+
+=======
+>>>>>>> fc1b65b... Remove Qualcomm BoostFramework
     ActivityRecord findTaskLocked(ActivityRecord r) {
         if (DEBUG_TASKS) Slog.d(TAG_TASKS, "Looking for task of " + r);
         for (int displayNdx = mActivityDisplays.size() - 1; displayNdx >= 0; --displayNdx) {
