@@ -2362,7 +2362,6 @@ public class BackupManagerService {
                 + " interval=" + interval);
         synchronized (mCurrentOpLock) {
             mCurrentOperations.put(token, new Operation(OP_PENDING, callback));
-
             Message msg = mBackupHandler.obtainMessage(MSG_TIMEOUT, token, 0, callback);
             mBackupHandler.sendMessageDelayed(msg, interval);
         }
