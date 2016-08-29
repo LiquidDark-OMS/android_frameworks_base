@@ -55,11 +55,6 @@ public class BootDexoptDialog extends Dialog {
         super(context, themeResId);
         mContext = context;
         mPackageManager = mContext.getPackageManager();
-
-        final boolean useFanceEffects = (!ActivityManager.isLowRamDeviceStatic()
-                                         || ActivityManager.isForcedHighEndGfx());
-        mShouldShowIcon = !SystemProperties.getBoolean(PROP_DEXOPT_NO_ICON, !useFanceEffects);
-
         LayoutInflater inflater =
                 (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View bootMsgLayout = inflater.inflate(
